@@ -38,7 +38,7 @@ end
 -- Disable wanted level
 if Config.DisableWantedLevel then
 
-  Citizen.CreateThread(function()
+  ESX.SetInterval(20, function()
 
     local playerId = PlayerId()
 
@@ -46,9 +46,7 @@ if Config.DisableWantedLevel then
       SetPlayerWantedLevel(playerId, 0, false)
       SetPlayerWantedLevelNow(playerId, false)
     end
-
-    Citizen.Wait(0)
-
+    
   end)
 
 end
