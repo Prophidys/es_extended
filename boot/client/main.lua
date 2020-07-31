@@ -34,3 +34,21 @@ if Config.EnableHud then
   end)
 
 end
+
+-- Disable wanted level
+if Config.DisableWantedLevel then
+
+  Citizen.CreateThread(function()
+
+    local playerId = PlayerId()
+
+    if GetPlayerWantedLevel(playerId) ~= 0 then
+      SetPlayerWantedLevel(playerId, 0, false)
+      SetPlayerWantedLevelNow(playerId, false)
+    end
+
+    Citizen.Wait(0)
+
+  end)
+
+end
